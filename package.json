@@ -1,6 +1,6 @@
 {
   "name": "mustachio-middleware",
-  "version": "0.0.0-experimental4",
+  "version": "0.0.0-experimental8",
   "description": "Express middleware for Mustachio",
   "author": "Magnus Hoff <maghoff@gmail.com> (http://magnushoff.com/)",
   "homepage": "https://github.com/maghoff/mustachio-middleware",
@@ -16,6 +16,6 @@
 	"node": ">=4.0.0"
   },
   "dependencies": {
-    "mustachio": "0.0.0-experimental4"
+    "mustachio": "0.0.0-experimental8"
   }
 }
