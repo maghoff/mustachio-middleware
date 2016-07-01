@@ -9,7 +9,9 @@ const app = express();
 app.use(mu());
 
 app.get('/', function (req, res) {
-	res.mu('example', { "user-agent": req.get('user-agent') });
+	res.mu('example', {
+		headers: Object.keys(req.headers).map(key => ({ key, value: req.headers[key] }))
+	});
 });
 
 app.listen(8000);

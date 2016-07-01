@@ -6,17 +6,15 @@ const mustachio = require('mustachio');
 
 module.exports = function (config) {
 	config = config || {};
-	const root = config.root || path.join(path.dirname(require.main.filename), 'template');
-	const suffix = config.suffix || '.mustache';
+
+	const partials = new mustachio.partials.FsPartials(config.root, config.suffixes);
 
 	return function (req, res, next) {
 		res.mu = function (templateName, data) {
-			fs.readFile(path.join(root, templateName + suffix), 'utf8', function (err, templateString) {
-				if (err) return next(err);
-
-				const template = mustachio.string(templateString);
-				template.render(data).stream().pipe(res);
-			});
+			Promise.resolve(partials.get(templateName)).then(ast => {
+				const template = new mustachio.Template(ast);
+				template.render(data, partials).stream().pipe(res);
+			}).catch(next);
 		};
 		next();
 	}
