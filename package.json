@@ -1,9 +1,10 @@
 {
   "name": "mustachio-middleware",
   "version": "0.3.0",
-  "description": "Express middleware for Mustachio",
+  "description": "Express middleware for Mustachio, the pull streaming Mustache engine",
   "author": "Magnus Hoff <maghoff@gmail.com> (http://magnushoff.com/)",
   "homepage": "https://github.com/maghoff/mustachio-middleware",
+  "keywords": [ "mustache", "mustachio", "templates", "template", "express", "middleware", "express-middleware" ],
   "repository": {
     "type": "git",
     "url": "https://github.com/maghoff/mustachio-middleware.git"

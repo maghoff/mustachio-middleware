@@ -1,5 +1,5 @@
 mustachio-middleware is an [express][express] middleware for
-[Mustachio][mustachio], a streaming implementation of the
+[Mustachio][mustachio], a pull streaming implementation of the
 [Mustache][mustache] templating language.
 
 [express]: http://expressjs.com/
