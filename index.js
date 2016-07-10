@@ -19,7 +19,9 @@ module.exports = function (config) {
 		res.mu = function (templateName, data) {
 			Promise.resolve(partials.get(templateName)).then(ast => {
 				const template = new mustachio.Template(ast);
-				template.render(data, partials).stream().pipe(res);
+				const stream = template.render(data, partials).stream();
+				stream.on('error', next);
+				stream.pipe(res);
 			}).catch(next);
 		};
 		next();
