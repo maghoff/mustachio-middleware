@@ -25,6 +25,6 @@
     "node": ">=4.0.0"
   },
   "dependencies": {
-    "mustachio": "^0.3.0"
+    "mustachio": "^1.0.0"
   }
 }

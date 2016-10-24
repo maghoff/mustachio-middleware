@@ -15,14 +15,15 @@ module.exports = function (config) {
 			new mustachio.partials.Fs(config.root, config.suffixes) :
 			new mustachio.partials.FsWatch(config.root, config.suffixes));
 
+	const resolver = mustachio.resolver({
+		partialsResolver: partials
+	});
+
 	return function (req, res, next) {
 		res.mu = function (templateName, data) {
-			Promise.resolve(partials.get(templateName)).then(ast => {
-				const template = new mustachio.Template(ast);
-				const stream = template.render(data, partials).stream();
-				stream.on('error', next);
-				stream.pipe(res);
-			}).catch(next);
+			const stream = resolver(templateName, data).stream();
+			stream.on('error', next);
+			stream.pipe(res);
 		};
 		next();
 	}
