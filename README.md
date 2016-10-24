@@ -47,7 +47,7 @@ resolving templates and partials. It defaults to `[ '.mustache', '.mu',
 
 For more flexibility, `opts` can be `{ "partialsResolver": ... }` with an
 object that implements the partials resolver interface. For more details see
-[partials](https://github.com/maghoff/mustachio/tree/master/lib/partials).
+[partials](https://github.com/maghoff/mustachio/tree/v1/lib/partials).
 
 The default partials resolver when no `"partialsResolver"` is specified is
 `partials.FsWatch`. If `NODE_ENV` is `production`, the partials resolver is
